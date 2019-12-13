@@ -1,0 +1,116 @@
+# This is the islands problem in the new pomdp
+# format.  This format is still experimental and subject to change
+
+discount: 0.75
+values: reward
+states: landing-left-town-mid landing-left-town-right landing-mid-town-left landing-mid-town-right landing-right-town-left landing-right-town-mid
+actions: look-left look-mid look-right arrive-left arrive-mid arrive-right
+observations: landing-left landing-mid landing-right
+
+T: look-left
+identity
+
+T: look-mid
+identity
+
+T: look-right
+identity
+
+T: arrive-left
+uniform
+
+T: arrive-mid
+uniform
+
+T: arrive-right
+uniform
+
+O: look-left
+0.65 0.2 0.15
+0.65 0.2 0.15
+0.225 0.55 0.225
+0.225 0.55 0.225
+0.15 0.325 0.525
+0.15 0.325 0.525
+
+O: look-mid
+0.65 0.2 0.15
+0.65 0.2 0.15
+0.1 0.8 0.1
+0.1 0.8 0.1
+0.175 0.2 0.625
+0.175 0.2 0.625
+
+O: look-right
+0.5 0.325 0.175
+0.5 0.325 0.175
+0.15 0.625 0.225
+0.15 0.625 0.225
+0.1 0.2 0.7
+0.1 0.2 0.7
+
+O: arrive-left
+0.65 0.2 0.15
+0.65 0.2 0.15
+0.225 0.55 0.225
+0.225 0.55 0.225
+0.15 0.325 0.525
+0.15 0.325 0.525
+
+O: arrive-mid
+0.65 0.2 0.15
+0.65 0.2 0.15
+0.1 0.8 0.1
+0.1 0.8 0.1
+0.175 0.2 0.625
+0.175 0.2 0.625
+
+O: arrive-right
+0.5 0.325 0.175
+0.5 0.325 0.175
+0.15 0.625 0.225
+0.15 0.625 0.225
+0.1 0.2 0.7
+0.1 0.2 0.7
+
+R: look-left : landing-left-town-mid : * : * -1
+R: look-left : landing-left-town-right : * : * -1
+R: look-left : landing-mid-town-left : * : * -1
+R: look-left : landing-mid-town-right : * : * -1
+R: look-left : landing-right-town-left : * : * -1
+R: look-left : landing-right-town-mid : * : * -1
+
+R: look-mid : landing-left-town-mid : * : * -1
+R: look-mid : landing-left-town-right : * : * -1
+R: look-mid : landing-mid-town-left : * : * -1
+R: look-mid : landing-mid-town-right : * : * -1
+R: look-mid : landing-right-town-left : * : * -1
+R: look-mid : landing-right-town-mid : * : * -1
+
+R: look-right : landing-left-town-mid : * : * -1
+R: look-right : landing-left-town-right : * : * -1
+R: look-right : landing-mid-town-left : * : * -1
+R: look-right : landing-mid-town-right : * : * -1
+R: look-right : landing-right-town-left : * : * -1
+R: look-right : landing-right-town-mid : * : * -1
+
+R: arrive-right : landing-left-town-mid : * : * -1000
+R: arrive-right : landing-left-town-right : * : * 1
+R: arrive-right : landing-mid-town-left : * : * -1000
+R: arrive-right : landing-mid-town-right : * : * 1
+R: arrive-right : landing-right-town-left : * : * 100
+R: arrive-right : landing-right-town-mid : * : * 100
+
+R: arrive-mid : landing-left-town-mid : * : * 1
+R: arrive-mid : landing-left-town-right : * : * -1000
+R: arrive-mid : landing-mid-town-left : * : * 100
+R: arrive-mid : landing-mid-town-right : * : * 100
+R: arrive-mid : landing-right-town-left : * : * -1000
+R: arrive-mid : landing-right-town-mid : * : * 1
+
+R: arrive-left : landing-left-town-mid : * : * 100
+R: arrive-left : landing-left-town-right : * : * 100
+R: arrive-left : landing-mid-town-left : * : * 1
+R: arrive-left : landing-mid-town-right : * : * -1000
+R: arrive-left : landing-right-town-left : * : * 1
+R: arrive-left : landing-right-town-mid : * : * -1000

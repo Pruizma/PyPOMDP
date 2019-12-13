@@ -83,11 +83,12 @@ class POMCP(Solver):
         if depth > max_depth or budget <= 0:
             return 0
 
+
         ai = rand_choice(self.model.get_legal_actions(state))
         sj, oj, r, cost = self.model.simulate_action(state, ai)
 
         return r + self.model.discount * self.rollout(sj, h + [ai, oj], depth + 1, max_depth, budget-cost)
-        
+
     def simulate(self, state, max_depth, depth=0, h=[], parent=None, budget=None):
         """
         Perform MCTS simulation on a POMCP belief search tree
@@ -138,6 +139,7 @@ class POMCP(Solver):
         return R
 
     def solve(self, T):
+
         """
         Solves for up to T steps
         """
@@ -147,7 +149,7 @@ class POMCP(Solver):
             n += 1
             state = self.tree.root.sample_state()
             self.simulate(state, max_depth=T, h=self.tree.root.h, budget=self.tree.root.budget)
-        log.info('# Simulation = {}'.format(n))
+        log.info('# Step = {}'.format(n))
 
     def get_action(self, belief):
         """
@@ -217,7 +219,7 @@ class POMCP(Solver):
 
             # re-compute the current belief distribution after reinvigoration
             new_belief =  self.compute_belief()
-            log.info(('*** {} random particles are added ***'.format(len(mutations))))
+            #log.info(('*** {} random particles are added ***'.format(len(mutations))))
         return new_belief
 
     def draw(self, beliefs):

@@ -31,7 +31,7 @@ class PomdpParser:
 
     def __enter__(self):
         attrs = ['init_state', 'start', 'discount', 'values', 'states', 'actions', 'costs', 'observations', 'T', 'O', 'R']
-
+    
         with open(self.config_file, 'r') as f:
             self.contents = [
                 x.strip() for x in f.readlines()

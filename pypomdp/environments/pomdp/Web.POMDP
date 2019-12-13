@@ -1,0 +1,55 @@
+
+values: reward
+discount: 0.95
+states: women men
+actions: monitor adv-cosmetics adv-shave
+observations: ballet videogames
+start: 0.3 0.7
+
+T: monitor
+identity
+
+T: adv-cosmetics
+0.3 0.7
+0.3 0.7
+
+T: adv-shave
+0.3 0.7
+0.3 0.7
+
+
+O: monitor : women : ballet
+0.7
+
+O: monitor : women : videogames
+0.3
+
+O: monitor : men : ballet
+0.1
+
+O: monitor : men : videogames
+0.9
+
+O: adv-cosmetics
+uniform
+
+O: adv-shave
+uniform
+
+R: monitor : men : * : *
+-0.10
+
+R: monitor : women : * : *
+-0.10
+
+R: adv-cosmetics : women : * : *
+1.0
+
+R: adv-cosmetics : men : * : *
+-6.0
+
+R: adv-shave : women : * : *
+-4.60
+
+R: adv-shave : men : * : *
+2.0

@@ -3,7 +3,7 @@ import os
 ROOT = os.getcwd()
 
 class RunnerParams:
-	def __init__(self, env, logfile, config, budget, max_play, snapshot, random_prior):
+	def __init__(self, env, logfile, config, budget, max_play, snapshot, random_prior, benchmark):
 		# given params
 		self.env = env
 		self.budget = budget
@@ -12,6 +12,8 @@ class RunnerParams:
 		self.random_prior = random_prior
 		self.snapshot = snapshot
 		self.logfile = logfile
+		#New argument
+		self.benchmark = benchmark
 
 		# default params
 		self.config_folder = os.path.join(ROOT, 'configs')
